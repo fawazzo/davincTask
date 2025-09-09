@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import type { User } from '../types';
 import axios from 'axios'; // npm install axios in frontend
 
-const API_BASE_URL = 'http://localhost:3000'; // Your NestJS backend URL
+const API_BASE_URL = 'https://davinctask.onrender.com/'; // Your NestJS backend URL
 
 const UserList: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import type { Post } from '../types';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000'; // Your NestJS backend URL
+const API_BASE_URL = 'https://davinctask.onrender.com/'; // Your NestJS backend URL
 
 const PostList: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);

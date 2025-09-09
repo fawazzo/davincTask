@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import type { User, Post, UpdateUserDto, CreateUserDto } from '../types';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://davinctask.onrender.com/';
 
 const UserDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
