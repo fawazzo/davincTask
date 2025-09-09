@@ -1,6 +1,6 @@
 // backend/src/users/users.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { User, Address, Company } from './interfaces/user.interface'; // Ensure Address and Company are imported if they are distinct interfaces. If they are just type aliases for AddressDto/CompanyDto, it's fine.
+import { User, Address, Company } from './interfaces/user.interface';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { UpdateUserDto } from '../users/dto/update-user.dto';
 

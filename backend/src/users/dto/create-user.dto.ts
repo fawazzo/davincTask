@@ -3,84 +3,75 @@ import {
   IsString,
   IsEmail,
   IsNotEmpty,
-  IsNumber,
-  IsOptional,
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
-export class GeoDto { // <--- ADD export
+// === GeoDto ===
+export class GeoDto {
   @IsString()
-  @IsNotEmpty()
   lat: string;
 
   @IsString()
-  @IsNotEmpty()
   lng: string;
 }
 
-export class AddressDto { // <--- ADD export
+// === AddressDto ===
+export class AddressDto {
   @IsString()
-  @IsNotEmpty()
   street: string;
 
   @IsString()
-  @IsNotEmpty()
   suite: string;
 
   @IsString()
-  @IsNotEmpty()
   city: string;
 
   @IsString()
-  @IsNotEmpty()
   zipcode: string;
 
   @ValidateNested()
   @Type(() => GeoDto)
-  geo: GeoDto;
+  geo: GeoDto; // GeoDto is still required if address is provided
 }
 
-export class CompanyDto { // <--- ADD export
+// === CompanyDto ===
+export class CompanyDto {
   @IsString()
-  @IsNotEmpty()
   name: string;
 
   @IsString()
-  @IsNotEmpty()
   catchPhrase: string;
 
   @IsString()
-  @IsNotEmpty()
   bs: string;
 }
 
+// === CreateUserDto ===
 export class CreateUserDto {
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty() // Keep for truly mandatory fields
   name: string;
 
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty() // Keep for truly mandatory fields
   username: string;
 
   @IsEmail()
-  @IsNotEmpty()
+  @IsNotEmpty() // Keep for truly mandatory fields
   email: string;
 
   @ValidateNested()
   @Type(() => AddressDto)
-  address: AddressDto;
+  address: AddressDto; // Address object itself is still mandatory
 
   @IsString()
-  @IsNotEmpty()
   phone: string;
 
   @IsString()
-  @IsNotEmpty()
   website: string;
 
   @ValidateNested()
   @Type(() => CompanyDto)
-  company: CompanyDto;
+  company: CompanyDto; // Company object itself is still mandatory
 }

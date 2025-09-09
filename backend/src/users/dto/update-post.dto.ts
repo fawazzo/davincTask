@@ -6,13 +6,14 @@ import { IsOptional, IsString, IsNumber } from 'class-validator';
 export class UpdatePostDto extends PartialType(CreatePostDto) {
   @IsOptional()
   @IsNumber()
+  id?: number;
+
+  @IsOptional() @IsNumber()
   userId?: number;
 
-  @IsOptional()
-  @IsString()
+  @IsOptional() @IsString()
   title?: string;
 
-  @IsOptional()
-  @IsString()
+  @IsOptional() @IsString()
   body?: string;
 }
