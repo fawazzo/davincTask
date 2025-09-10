@@ -1,6 +1,6 @@
 # Frontend (React + Vite) Web Development Assignment
 
-This is the frontend portion of the web development assignment, built with React, TypeScript, and Vite. It demonstrates fetching data from `jsonplaceholder.typicode.com`, displaying lists of users and posts, and providing conceptual CRUD operations.
+This is the frontend portion of the web development assignment, built with React, TypeScript, and Vite. It interacts with a dedicated NestJS backend (deployed at `https://davinctask.onrender.com`) to provide full CRUD operations for users and posts.
 
 ## Technologies Used
 
@@ -8,30 +8,39 @@ This is the frontend portion of the web development assignment, built with React
 *   **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
 *   **Vite:** A fast build tool that provides an extremely quick development experience.
 *   **React Router DOM:** For declarative routing in React applications.
+*   **Axios:** A promise-based HTTP client for making API requests.
 *   **ESLint:** For maintaining code quality and consistency.
 
 ## Features
 
 *   **Homepage:** Simple navigation to Users and Posts lists.
-*   **User List:** Displays `id`, `name`, `username`, and `email` for each user.
-*   **Post List:** Displays `id`, `userId`, and `title` for each post.
-*   **Detail Views:**
-    *   **User Detail:** Shows full user details and lists all posts by that user.
-    *   **Post Detail:** Shows full post details and links to the author's page.
-*   **Conceptual CRUD Operations:**
-    *   **Create (Simulated):** Links to `/users/new` and `/posts/new` are present, but actual creation is only simulated in Phase 1 due to using a read-only external API.
-    *   **Read:** Displaying lists and individual details.
-    *   **Update (Simulated):** Edit forms are provided on detail pages, but changes are only applied to local state and an alert is shown.
-    *   **Delete (Simulated):** Delete buttons are present, triggering a confirmation and an alert message.
+*   **User List:** Displays `id`, `name`, `username`, and `email` for each user. Includes a link to create a new user.
+*   **Post List:** Displays `id`, `userId`, and `title` for each post. Includes a link to create a new post.
+*   **Detail Views with Full CRUD:**
+    *   **User Detail (`/users/:id`):**
+        *   Shows full user details.
+        *   Lists all posts by that user, with links to individual post details.
+        *   **Edit Functionality:** Allows updating existing user information (name, username, email, address, company details).
+        *   **Delete Functionality:** Allows deleting a user.
+    *   **Post Detail (`/posts/:id`):**
+        *   Shows full post details.
+        *   Displays the post's author, with a link to the author's user detail page.
+        *   **Edit Functionality:** Allows updating existing post information (title, body, userId).
+        *   **Delete Functionality:** Allows deleting a post.
+    *   **Create Functionality (`/users/new`, `/posts/new`):**
+        *   Provides forms to create new users and posts, which are then persisted to the backend.
+*   **Backend Integration:** All data fetching and manipulation (Create, Read, Update, Delete) are performed by making API calls to the NestJS backend.
 *   **Basic Styling:** Minimalist design for readability and user experience.
 *   **ESLint Compliance:** Code adheres to ESLint rules for TypeScript and React.
 
 ## Setup and Run
 
+This frontend application is designed to work with the companion backend. Ensure the backend is running or accessible at `https://davinctask.onrender.com`.
+
 1.  **Clone the repository:**
     ```bash
     git clone <your-repository-url>
-    cd web-dev-assignment/frontend
+    cd davincTask/frontend
     ```
 
 2.  **Install dependencies:**
@@ -43,7 +52,7 @@ This is the frontend portion of the web development assignment, built with React
     ```bash
     npm run dev
     ```
-    The application will typically be available at `http://localhost:5173` (or another port specified by Vite).
+    The application will typically be available at `http://localhost:5173` (or another port specified by Vite). It will automatically connect to the deployed backend.
 
 4.  **Build for production (optional):**
     ```bash
